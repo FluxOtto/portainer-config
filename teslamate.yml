@@ -24,7 +24,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=teslamate
     volumes:
-      - /opt/teslamate/db-data:/var/lib/postgresql/data
+      - teslamate-db:/var/lib/postgresql/data
 
   grafana:
     image: teslamate/grafana:latest
@@ -37,7 +37,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - /opt/teslamate/grafana-data:/var/lib/grafana
+      - teslamate-grafana-data:/var/lib/grafana
 
   mosquitto:
     image: eclipse-mosquitto:2
@@ -46,5 +46,11 @@ services:
     # ports:
     #   - 1883:1883
     volumes:
-      - /opt/mosquitto/config:/mosquitto/config
-      - /opt/mosquitto/data:/mosquitto/data
+      - mosquitto-conf:/mosquitto/config
+      - mosquitto-data:/mosquitto/data
+
+volumes:
+  teslamate-db:
+  teslamate-grafana-data:
+  mosquitto-conf:
+  mosquitto-data:
