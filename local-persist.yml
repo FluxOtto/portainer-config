@@ -1,0 +1,5 @@
+volumes:
+  data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: /opt/text
