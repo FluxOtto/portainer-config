@@ -50,7 +50,10 @@ services:
       - mosquitto-data:/mosquitto/data
 
 volumes:
-  teslamate-db:
+# external volumes must already exist
+ teslamate-db:
+    external: true
   teslamate-grafana-data:
+    external: true
   mosquitto-conf:
   mosquitto-data:
