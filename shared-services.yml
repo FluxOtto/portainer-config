@@ -9,8 +9,8 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
       
-  volumes:
-    grafana-data:
-      driver: local-persist
-      driver_opts:
-        mountpoint: /opt/grafana-data
+volumes:
+  grafana-data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: /opt/grafana-data
