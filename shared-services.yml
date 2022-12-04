@@ -1,13 +1,16 @@
-grafana:
-    image: grafana/grafana:latest
+services:
+  grafana:
+    build:
+      context: ./grafana
+    container_name: grafana
     ports:
       - 3000:3000
     restart: unless-stopped
     volumes:
       - grafana-data:/var/lib/grafana
       
-volumes:
-  grafana-data:
-    driver: local-persist
-    driver_opts:
-      mountpoint: /opt/grafana-data
+  volumes:
+    grafana-data:
+      driver: local-persist
+      driver_opts:
+        mountpoint: /opt/grafana-data
