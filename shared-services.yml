@@ -9,6 +9,4 @@ services:
       
 volumes:
   grafana-data:
-    driver: local-persist
-    driver_opts:
-      mountpoint: /opt/grafana-data
+    external: true
