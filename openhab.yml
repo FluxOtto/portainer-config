@@ -3,12 +3,14 @@ services:
     image: "openhab/openhab:latest"
     restart: always
     network_mode: host
+    command: "bash -c 'if [ -e /openhab/restore/restore.zip ]; then echo y |/openhab/runtime/bin/restore /openhab/restore/restore.zip ; fi; exec tini -s ./start.sh server'"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "/etc/timezone:/etc/timezone:ro"
       - "/opt/openhab/addons:/openhab/addons"
       - "/opt/openhab/conf:/openhab/conf"
       - "/opt/openhab/userdata:/openhab/userdata"
+      - "/opt/openhab/restore:/openhab/restore"
     environment:
       USER_ID: "1000"
       GROUP_ID: "1000"
