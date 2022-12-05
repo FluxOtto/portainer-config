@@ -7,7 +7,7 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
 
- mosquitto:
+  mosquitto:
     image: eclipse-mosquitto:2
     restart: unless-stopped
     command: mosquitto -c /mosquitto-no-auth.conf
