@@ -24,6 +24,18 @@ services:
     restart: unless-stopped
     volumes:
       - influxdb-data:/var/lib/influxdb2
+duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Sydney
+    volumes:
+      - duplicati-config:/config
+      - /opt:/source
+    ports:
+      - 8200:8200
+    restart: unless-stopped
 
 volumes:
   grafana-data:
@@ -33,4 +45,6 @@ volumes:
   mosquitto-conf:
     external: true
   influxdb-data:
+    external: true
+  duplicati-config:
     external: true
