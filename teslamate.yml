@@ -2,6 +2,7 @@ services:
   teslamate:
     image: teslamate/teslamate:latest
     restart: always
+    user: "${UID}:${GID}"
     environment:
       - ENCRYPTION_KEY=$ENCRYPTION_KEY
       - DATABASE_USER=teslamate
@@ -19,6 +20,7 @@ services:
   database:
     image: postgres:14
     restart: always
+    user: "${UID}:${GID}"
     environment:
       - POSTGRES_USER=teslamate
       - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
@@ -29,6 +31,7 @@ services:
   grafana:
     image: teslamate/grafana:latest
     restart: always
+    user: "${UID}:${GID}"
     environment:
       - DATABASE_USER=teslamate
       - DATABASE_PASS=$POSTGRES_PASSWORD
@@ -42,6 +45,7 @@ services:
   mosquitto:
     image: eclipse-mosquitto:2
     restart: always
+    user: "${UID}:${GID}"
     command: mosquitto -c /mosquitto-no-auth.conf
     # ports:
     #   - 1883:1883
