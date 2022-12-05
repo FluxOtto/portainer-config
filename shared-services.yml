@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
     volumes:
       - influxdb-data:/var/lib/influxdb2
-duplicati:
+  duplicati:
     image: lscr.io/linuxserver/duplicati:latest
     environment:
       - PUID=1000
