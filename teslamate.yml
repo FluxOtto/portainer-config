@@ -19,7 +19,6 @@ services:
   database:
     image: postgres:14
     restart: always
-    user: "${UID}:${GID}"
     environment:
       - POSTGRES_USER=teslamate
       - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
