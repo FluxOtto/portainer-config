@@ -16,11 +16,21 @@ services:
     volumes:
       - mosquitto-conf:/mosquitto/config
       - mosquitto-data:/mosquitto/data
-      
+
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - 8086:8086
+    restart: unless-stopped
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+
 volumes:
   grafana-data:
     external: true
   mosquitto-data:
     external: true
   mosquitto-conf:
+    external: true
+  influxdb-data:
     external: true
