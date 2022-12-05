@@ -2,7 +2,6 @@ services:
   teslamate:
     image: teslamate/teslamate:latest
     restart: always
-    user: "${UID}:${GID}"
     environment:
       - ENCRYPTION_KEY=$ENCRYPTION_KEY
       - DATABASE_USER=teslamate
