@@ -1,6 +1,6 @@
 services:
   openhab:
-    image: "openhab/openhab:latest"
+    image: "openhab/openhab:milestone"
     restart: always
     network_mode: host
     command: "bash -c 'if [ -e /openhab/restore/restore.zip ]; then echo y |/openhab/runtime/bin/restore /openhab/restore/restore.zip ; fi; exec tini -s ./start.sh server'"
