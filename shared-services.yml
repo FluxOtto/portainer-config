@@ -33,6 +33,7 @@ services:
     volumes:
       - duplicati-config:/config
       - /opt:/source
+      - /media/USB:/media/USB
     ports:
       - 8200:8200
     restart: unless-stopped
