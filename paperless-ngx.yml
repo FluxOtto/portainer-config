@@ -91,4 +91,4 @@ services:
       #PAPERLESS_OCR_LANGUAGE: eng
 
 volumes:
-    - redisdata:/data
+  redisdata:
