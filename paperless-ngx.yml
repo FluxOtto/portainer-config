@@ -90,4 +90,5 @@ services:
 # documents are written in.
       #PAPERLESS_OCR_LANGUAGE: eng
 
-
+volumes:
+    - redisdata:/data
