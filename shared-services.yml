@@ -37,7 +37,13 @@ services:
     ports:
       - 8200:8200
     restart: unless-stopped
-
+  avahi:
+    image: flungo/avahi
+    volumes:
+      - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+      - /opt/avahi/hosts:/etc/avahi/hosts
+    network_mode: "host"
+    restart: unless-stopped
 volumes:
   grafana-data:
     external: true
