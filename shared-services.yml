@@ -12,7 +12,7 @@ services:
       - 81:80
       - 444:443
     restart: unless-stopped
-nginx:
+  nginx:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
     ports:
