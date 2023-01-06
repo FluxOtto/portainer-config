@@ -9,7 +9,7 @@ services:
     volumes:
       - /opt/heimdall/config:/config
     ports:
-      - 81:80
+      - 88:80
       - 444:443
     restart: unless-stopped
   nginx:
