@@ -1,5 +1,18 @@
 services:
-  nginx:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Sydney
+    volumes:
+      - /opt/heimdall/config:/config
+    ports:
+      - 81:80
+      - 444:443
+    restart: unless-stopped
+nginx:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
     ports:
