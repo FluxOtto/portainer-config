@@ -6,8 +6,6 @@ services:
       - USER_UID=1000
       - USER_GID=1000
     restart: unless-stopped
-    networks:
-      - gitea
     volumes:
       - /opt/gitea/data:/data
       - /etc/timezone:/etc/timezone:ro
