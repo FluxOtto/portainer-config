@@ -1,15 +1,16 @@
 services:
 
-# local-persist is a driver that allows containers to connect to external volumes defined in Portainer
   local-persist:
+    # local-persist is a driver that allows containers to connect to external volumes defined in Portainer
     container_name: local-presist
     image: cwspear/docker-local-persist-volume-plugin
     volumes:
       - /run/docker/plugins:/run/docker/plugins
       - /opt/local-persist:/var/lib/docker/plugin-data/
 
-# Self-hosted git server
+
   gitea:
+    # Self-hosted git server
     image: gitea/gitea:latest
     container_name: gitea
     environment:
@@ -24,8 +25,9 @@ services:
       - "3002:3000"
       - "222:22"
   
-# Dash board
+
   heimdall:
+    # Dash board
     image: lscr.io/linuxserver/heimdall:latest
     container_name: heimdall
     environment:
@@ -39,8 +41,9 @@ services:
       - 444:443
     restart: unless-stopped
   
-  # nginx and manager, to allow redirects eg http://portainer.local 
-  nginx:
+  
+  nginx: 
+    # nginx and manager, to allow redirects eg http://portainer.local
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
     ports:
@@ -64,7 +67,6 @@ services:
       - /opt/nginx/data:/data
       - /opt/nginx/letsencrypt:/etc/letsencrypt
  
- # graphing dashboard
  grafana:
     image: grafana/grafana
     ports:
@@ -83,8 +85,8 @@ services:
       - mosquitto-conf:/mosquitto/config
       - mosquitto-data:/mosquitto/data
 
- # persistance database - used by openhab
   influxdb:
+    # persistance database - used by openhab
     image: influxdb:latest
     ports:
       - 8086:8086
@@ -92,8 +94,8 @@ services:
     volumes:
       - influxdb-data:/var/lib/influxdb2
   
-  # backup
   duplicati:
+    # backup
     image: lscr.io/linuxserver/duplicati:latest
     environment:
       - PUID=1000
@@ -107,8 +109,9 @@ services:
       - 8200:8200
     restart: unless-stopped
 
-# these volumes need to be created on portainer using local-persist
+
 volumes:
+# these volumes need to be created on portainer using local-persist
   grafana-data:
     external: true
   mosquitto-data:
