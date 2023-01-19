@@ -1,11 +1,4 @@
 services:
-
-  local-persist:
-    container_name: local-presist
-    image: cwspear/docker-local-persist-volume-plugin
-    volumes:
-      - /run/docker/plugins:/run/docker/plugins
-      - /opt/local-persist:/var/lib/docker/plugin-data/
   gitea:
     image: gitea/gitea:latest
     container_name: gitea
