@@ -1,6 +1,6 @@
 services:
 
-#local-persist is a driver that allows containers to connect to external volumes defined in Portainer
+# local-persist is a driver that allows containers to connect to external volumes defined in Portainer
   local-persist:
     container_name: local-presist
     image: cwspear/docker-local-persist-volume-plugin
@@ -8,7 +8,7 @@ services:
       - /run/docker/plugins:/run/docker/plugins
       - /opt/local-persist:/var/lib/docker/plugin-data/
 
-#Self-hosted git server
+# Self-hosted git server
   gitea:
     image: gitea/gitea:latest
     container_name: gitea
@@ -39,7 +39,7 @@ services:
       - 444:443
     restart: unless-stopped
   
-  #nginx and manager, to allow redirects eg http://portainer.local 
+  # nginx and manager, to allow redirects eg http://portainer.local 
   nginx:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
@@ -64,7 +64,7 @@ services:
       - /opt/nginx/data:/data
       - /opt/nginx/letsencrypt:/etc/letsencrypt
  
- #graphing dashboard
+ # graphing dashboard
  grafana:
     image: grafana/grafana
     ports:
@@ -73,7 +73,6 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
 
-# 
   mosquitto:
     image: eclipse-mosquitto:2
     restart: unless-stopped
@@ -84,7 +83,7 @@ services:
       - mosquitto-conf:/mosquitto/config
       - mosquitto-data:/mosquitto/data
 
- #persistance database - used by openhab
+ # persistance database - used by openhab
   influxdb:
     image: influxdb:latest
     ports:
@@ -93,7 +92,7 @@ services:
     volumes:
       - influxdb-data:/var/lib/influxdb2
   
-  #backup
+  # backup
   duplicati:
     image: lscr.io/linuxserver/duplicati:latest
     environment:
@@ -108,7 +107,7 @@ services:
       - 8200:8200
     restart: unless-stopped
 
-#these volumes need to be created on portainer using local-persist
+# these volumes need to be created on portainer using local-persist
 volumes:
   grafana-data:
     external: true
