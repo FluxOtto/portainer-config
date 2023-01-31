@@ -1,0 +1,25 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      WEBSOCKET_ENABLED: "true"  # Enable WebSocket notifications.
+    volumes:
+      - /opt/vaultwarden/data:/data
+
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: always
+    ports:
+      - 84:80  # Needed for the ACME HTTP-01 challenge.
+      - 444:443
+    volumes:
+      - /opt/vaultwarden/Caddyfile:/etc/caddy/Caddyfile:ro
+      - /opt/vaultwarden/caddy-config:/config
+      - /opt/vaultwarden/caddy-data:/data
+    environment:
+      DOMAIN: "$DOMAIN"  # Your domain.
+      EMAIL: "$EMAIL"                 # The email address to use for ACME registration.
+      LOG_FILE: "/data/access.log"
