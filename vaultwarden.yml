@@ -13,8 +13,8 @@ services:
     container_name: caddy
     restart: always
     ports:
-      - 85:80  # Needed for the ACME HTTP-01 challenge.
-      - 445:443
+      - 86:80  # Needed for the ACME HTTP-01 challenge.
+      - 446:443
     volumes:
       - /opt/vaultwarden/Caddyfile:/etc/caddy/Caddyfile:ro
       - /opt/vaultwarden/caddy-config:/config
