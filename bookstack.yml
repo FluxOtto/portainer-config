@@ -5,14 +5,14 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - APP_URL=
+      - APP_URL=$APP_URL
       - DB_HOST=bookstack_db
       - DB_PORT=3306
       - DB_USER=bookstack
-      - DB_PASS=<yourdbpass>
+      - DB_PASS=$DB_PASS
       - DB_DATABASE=bookstackapp
     volumes:
-      - /path/to/data:/config
+      - /etc/bookstack/config:/config
     ports:
       - 6875:80
     restart: unless-stopped
@@ -24,11 +24,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - MYSQL_ROOT_PASSWORD=<yourdbpass>
-      - TZ=Europe/London
+      - MYSQL_ROOT_PASSWORD=$DB_PASS
+      - TZ=Australia/Sydney
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack
       - MYSQL_PASSWORD=<yourdbpass>
     volumes:
-      - /path/to/data:/config
+      - /etc/bookstack/db:/config
     restart: unless-stopped
