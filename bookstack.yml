@@ -28,7 +28,7 @@ services:
       - TZ=Australia/Sydney
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack
-      - MYSQL_PASSWORD=<yourdbpass>
+      - MYSQL_PASSWORD=$DB_PASS
     volumes:
       - /etc/bookstack/db:/config
     restart: unless-stopped
