@@ -64,7 +64,7 @@ services:
       - /opt/paperless/media:/usr/src/paperless/media
       - /opt/paperless/export:/usr/src/paperless/export
       - /opt/paperless/consume:/usr/src/paperless/consume
-      - /opt/paperless-ngx-postprocessor:/usr/src/paperless-ngx-postprocessor
+#      - /opt/paperless-ngx-postprocessor:/usr/src/paperless-ngx-postprocessor
     environment:
       PAPERLESS_REDIS: redis://broker:6379
       PAPERLESS_DBHOST: db
