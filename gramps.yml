@@ -5,7 +5,7 @@ services:
     ports:
       - "5000:5000"  # host:docker
     environment:
-      TREE: "Flodin-Cunningham"  # will create a new tree if not exists
+      TREE: "FC"  # will create a new tree if not exists
     volumes:
       - /opt/gramps/users:/app/users  # persist user database
       - /opt/gramps/indexdir:/app/indexdir  # persist search index
