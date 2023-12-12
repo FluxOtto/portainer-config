@@ -64,13 +64,13 @@ services:
       - /opt/paperless/media:/usr/src/paperless/media
       - /opt/paperless/export:/usr/src/paperless/export
       - /opt/paperless/consume:/usr/src/paperless/consume
-      - /opt/paperless-ngx-postprocessor:/usr/src/paperless-ngx-postprocessor
+#      - /opt/paperless-ngx-postprocessor:/usr/src/paperless-ngx-postprocessor
     environment:
       PAPERLESS_REDIS: redis://broker:6379
       PAPERLESS_DBHOST: db
       PAPERLESS_URL: $PAPERLESS_URL
       PAPERLESS_FILENAME_FORMAT: $PAPERLESS_FILENAME_FORMAT
-      PAPERLESS_POST_CONSUME_SCRIPT: /usr/src/paperless-ngx-postprocessor/post_consume_script.sh
+#      PAPERLESS_POST_CONSUME_SCRIPT: /usr/src/paperless-ngx-postprocessor/post_consume_script.sh
 # The UID and GID of the user used to run paperless in the container. Set this
 # to your UID and GID on the host so that you have write access to the
 # consumption directory.
