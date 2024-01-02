@@ -51,6 +51,48 @@ services:
     volumes:
       - mosquitto-conf:/mosquitto/config
       - mosquitto-data:/mosquitto/data
+  teslamateapi:
+    image: tobiasehlert/teslamateapi:latest
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "5"
+            max-size: "10m"
+    restart: always
+    depends_on:
+      - database
+    environment:
+      - DATABASE_USER=teslamate
+      - DATABASE_PASS=$POSTGRES_PASSWORD
+      - DATABASE_NAME=teslamate
+      - DATABASE_HOST=database
+      - MQTT_HOST=mosquitto
+      - TZ=Australia/Sydney ##You can change your Timezone here
+      - ENABLE_COMMANDS=true
+      - COMMANDS_ALL=true
+      - API_TOKEN_DISABLE=true
+      - ENCRYPTION_KEY=$ENCRYPTION_KEY 
+    #ports:
+    #  - 8080:8080
+
+  teslasolarcharger:
+    image: pkuehnel/teslasolarcharger:latest
+    container_name: teslasolarcharger
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "10"
+            max-size: "100m"
+    restart: always
+    depends_on:
+      - teslamateapi
+    environment:
+#      - Serilog__MinimumLevel__Default=Verbose #uncomment this line and recreate container with docker compose up -d for more detailed logs
+      - TZ=Australia/Sydney ##You can change your Timezone here
+    ports:
+      - 7190:80
+    volumes:
+      - teslasolarcharger-configs:/app/configs
       
 volumes:
   teslamate-db:
@@ -59,3 +101,4 @@ volumes:
     external: true
   mosquitto-conf:
   mosquitto-data:
+  teslasolarcharger-configs:
