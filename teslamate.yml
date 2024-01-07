@@ -88,6 +88,7 @@ services:
       - teslamateapi
     environment:
 #      - Serilog__MinimumLevel__Default=Verbose #uncomment this line and recreate container with docker compose up -d for more detailed logs
+      - UseFleetApiProxy=true 
       - TZ=Australia/Sydney ##You can change your Timezone here
     ports:
       - 7190:80
