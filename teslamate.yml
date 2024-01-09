@@ -95,7 +95,7 @@ services:
     ports:
       - 7190:80
     volumes:
-      - teslasolarcharger-configs:/app/configs
+      - /opt/teslasolarcharger/configs:/app/configs
       
 volumes:
   teslamate-db:
@@ -104,4 +104,3 @@ volumes:
     external: true
   mosquitto-conf:
   mosquitto-data:
-  teslasolarcharger-configs:
