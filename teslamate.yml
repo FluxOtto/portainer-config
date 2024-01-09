@@ -8,8 +8,7 @@ services:
       - DATABASE_PASS=$POSTGRES_PASSWORD
       - DATABASE_NAME=teslamate
       - DATABASE_HOST=database
-      - MQTT_HOST=mqtt.flodin.net
-      - TZ=Australia/Sydney ##You can change your Timezone here
+      - MQTT_HOST=mosquitto
     ports:
       - 4000:4000
     volumes:
@@ -68,7 +67,7 @@ services:
       - DATABASE_PASS=$POSTGRES_PASSWORD
       - DATABASE_NAME=teslamate
       - DATABASE_HOST=database
-      - MQTT_HOST=mqtt.flodin.net
+      - MQTT_HOST=mosquitto
       - TZ=Australia/Sydney ##You can change your Timezone here
       - ENABLE_COMMANDS=true
       - COMMANDS_ALL=true
