@@ -47,7 +47,7 @@ services:
     user: "${UID}:${GID}"
     command: mosquitto -c /mosquitto-no-auth.conf
     ports:
-       - 1884:1883
+       - 1883:1883
     volumes:
       - mosquitto-conf:/mosquitto/config
       - mosquitto-data:/mosquitto/data
