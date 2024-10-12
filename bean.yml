@@ -3,8 +3,8 @@ version: "3.0"
 services:
   bean:
     container_name: bean
-#    image: grostim/fava-docker:latest
-    image: yegle/fava
+    image: grostim/fava-docker:latest
+#    image: yegle/fava
     ports:
       - 5000:5000
     environment:
