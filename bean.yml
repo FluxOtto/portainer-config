@@ -2,22 +2,21 @@
 version: "3.0"
 services:
   bean:
+    container_name: bean
     image: grostim/fava-docker:latest
-#    image: grostim/fava-docker:Log-request
-    volumes:
-      - /opt/bean:/bean
- #     - /opt/fava/cron.daily:/etc/cron.daily/fava
- #     - /opt/fava/.ssh:/root/.ssh
- #     - /opt/fava/.gitconfig:/root/.gitconfig
-    networks:
-      - internal
+    ports:
+      - 5000:5000
     environment:
       - BEANCOUNT_INPUT_FILE=/bean/main.beancount
       - FAVA_DEBUG=True
  #     - ALPHAVANTAGE_API_KEY=$ALPHAVANTAGE_API_KEY
  #     - QUANDL_API_KEY=$QUANDL_API_KEY
  #     - IEX_TOKEN=$IEX_TOKEN
-    deploy:
+    volumes:
+      - /opt/bean:/bean
+ #     - /opt/fava/cron.daily:/etc/cron.daily/fava
+ #     - /opt/fava/.ssh:/root/.ssh
+ #     - /opt/fava/.gitconfig:/root/.gitconfig
 
 
  
