@@ -1,0 +1,23 @@
+## based on https://github.com/grostim/portainer-templates/fava.yml
+version: "3.0"
+services:
+  fava:
+    image: grostim/fava-docker:latest
+#    image: grostim/fava-docker:Log-request
+    volumes:
+      - /opt/bean:/bean
+ #     - /opt/fava/cron.daily:/etc/cron.daily/fava
+ #     - /opt/fava/.ssh:/root/.ssh
+ #     - /opt/fava/.gitconfig:/root/.gitconfig
+    networks:
+      - internal
+    environment:
+      - BEANCOUNT_INPUT_FILE=/bean/main.beancount
+      - FAVA_DEBUG=True
+ #     - ALPHAVANTAGE_API_KEY=$ALPHAVANTAGE_API_KEY
+ #     - QUANDL_API_KEY=$QUANDL_API_KEY
+ #     - IEX_TOKEN=$IEX_TOKEN
+    deploy:
+
+
+ 
