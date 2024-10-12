@@ -8,7 +8,7 @@ services:
     ports:
       - 5000:5000
     environment:
-      - BEANCOUNT_INPUT_FILE=/bean/main.beancount
+      - BEANCOUNT_FILE=/bean/main.beancount
       - FAVA_DEBUG=True
  #     - ALPHAVANTAGE_API_KEY=$ALPHAVANTAGE_API_KEY
  #     - QUANDL_API_KEY=$QUANDL_API_KEY
