@@ -1,7 +1,7 @@
 ## based on https://github.com/grostim/portainer-templates/fava.yml
 version: "3.0"
 services:
-  fava:
+  bean:
     image: grostim/fava-docker:latest
 #    image: grostim/fava-docker:Log-request
     volumes:
