@@ -23,8 +23,8 @@ services:
       - "3002:3000"
       - "222:22"
   heimdall:
-    #image: lscr.io/linuxserver/heimdall:latest
-    image: lscr.io/linuxserver/heimdall:V2.5.8-ls251
+    image: lscr.io/linuxserver/heimdall:latest 
+    #image: lscr.io/linuxserver/heimdall:V2.5.8-ls251
     container_name: heimdall
     environment:
       - PUID=1000
