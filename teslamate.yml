@@ -54,7 +54,6 @@ services:
       
 volumes:
   teslamate-db:
-    external: true
   teslamate-grafana-data:
     external: true
   mosquitto-conf:
