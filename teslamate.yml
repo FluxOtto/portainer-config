@@ -1,7 +1,7 @@
 services:
   teslamate:
     image: teslamate/teslamate:latest
-    restart: always
+    restart: unless-stopped
     environment:
       - ENCRYPTION_KEY=$ENCRYPTION_KEY
       - DATABASE_USER=teslamate
@@ -17,7 +17,7 @@ services:
       - all
 
   database:
-    image: postgres:18
+    image: postgres:18-trixie
     restart: always
     environment:
       - POSTGRES_USER=teslamate
